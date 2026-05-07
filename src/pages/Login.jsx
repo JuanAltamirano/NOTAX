@@ -1,7 +1,14 @@
 import "./LoginRegister.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
+
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -17,7 +24,7 @@ function Login() {
           <input type="password" id="password" name="password" />
         </div>
 
-        <button>Iniciar sesión</button>
+        <button onClick={handleLogin}>Iniciar sesión</button>
         <Link to="/" className="back-link">
           Volver al inicio
         </Link>
