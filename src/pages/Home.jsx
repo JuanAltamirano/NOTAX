@@ -12,6 +12,8 @@ function Home() {
   const [nota3, setNota3] = useState("");
   const [porcentaje3, setPorcentaje3] = useState("");
 
+  const [mostrarTercera, setMostrarTercera] = useState(false);
+
   const [resultado, setResultado] = useState(null);
 
   const calcular = () => {
@@ -74,6 +76,7 @@ function Home() {
             value={nota1}
             onChange={(e) => setNota1(e.target.value)}
           />
+
           <input
             placeholder="% Nota 1"
             value={porcentaje1}
@@ -87,6 +90,7 @@ function Home() {
             value={nota2}
             onChange={(e) => setNota2(e.target.value)}
           />
+
           <input
             placeholder="% Nota 2"
             value={porcentaje2}
@@ -94,18 +98,27 @@ function Home() {
           />
         </div>
 
-        <div className="input-row">
-          <input
-            placeholder="Nota 3 (Opcional)"
-            value={nota3}
-            onChange={(e) => setNota3(e.target.value)}
-          />
-          <input
-            placeholder="% Nota 3"
-            value={porcentaje3}
-            onChange={(e) => setPorcentaje3(e.target.value)}
-          />
-        </div>
+        {!mostrarTercera && (
+          <button onClick={() => setMostrarTercera(true)}>
+            Agregar tercera nota (opcional)
+          </button>
+        )}
+
+        {mostrarTercera && (
+          <div className="input-row">
+            <input
+              placeholder="Nota 3"
+              value={nota3}
+              onChange={(e) => setNota3(e.target.value)}
+            />
+
+            <input
+              placeholder="% Nota 3"
+              value={porcentaje3}
+              onChange={(e) => setPorcentaje3(e.target.value)}
+            />
+          </div>
+        )}
 
         <button onClick={calcular}>Calcular</button>
 
