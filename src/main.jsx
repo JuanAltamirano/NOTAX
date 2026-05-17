@@ -1,14 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import './styles/global.css';
+import './styles/index.css';
 
-const rootElement = document.getElementById('root');
-// Inicialización del root estándar de React 19
-const root = createRoot(rootElement);
-
+const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );

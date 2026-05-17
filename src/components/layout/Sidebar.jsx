@@ -1,19 +1,24 @@
-const Sidebar = () => {
+import './Sidebar.css';
+
+import { Link } from 'react-router-dom';
+
+function Sidebar() {
   return (
     <aside className="sidebar">
-      <div className="sidebar-brand">
-        <h1>NOTAX</h1>
+      <div className="sidebar-header">
+        <h2>NOTAX</h2>
       </div>
       <nav className="sidebar-nav">
-        <ul>
-          {/* Implementación con anclas para prototipado; sustituir por <Link> en fase de ruteo */}
-          <li><a href="#dashboard">Panel Principal</a></li>
-          <li><a href="#simulator">Simulador Predictivo</a></li>
-          <li><a href="#grades">Mis Calificaciones</a></li>
-        </ul>
+        <Link to="/dashboard">Resumen General</Link>
+        <Link to="/materias">Mis Materias</Link>
+        <Link to="/simulador">Simulador Avanzado</Link>
+        <Link to="/configuracion">Ajustes</Link>
       </nav>
+      <div className="sidebar-footer">
+        <Link to="/">Cerrar Sesión</Link>
+      </div>
     </aside>
   );
-};
+}
 
 export default Sidebar;

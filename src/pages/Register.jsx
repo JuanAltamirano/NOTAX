@@ -1,4 +1,4 @@
-import "./LoginRegister.css";
+import "../styles/LoginRegister.css";
 import { Link } from "react-router-dom"
 
 function Register() {
